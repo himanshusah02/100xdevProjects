@@ -1,0 +1,25 @@
+
+div{
+   
+     color: red;
+}
+button{
+    background-color: yellow;
+    border: none;
+    /* text-align: center; */
+    font-size: larger;
+    border-radius: 10px;
+}
+.deletebtnn{
+
+    background-color: green;
+    color: white;
+    border:  none;
+
+}
+.PandingBtn{
+    background-color: red;
+    color: white;
+    border:  1px solid black;
+    border-radius: 10px;
+}

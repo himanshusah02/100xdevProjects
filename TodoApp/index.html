@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TODO App</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <input type="text" />
+    <button onclick="addTodo()">Add Todo</button>
+    <div></div>
+
+    <script>
+      let Todo = [];
+      
+      let currentIndex = 1;
+      function addTodo() {
+       
+        let div = document.querySelector("div");
+        let input = document.querySelector("input").value;
+         Todo.push(Todo)
+
+
+        let item = document.createElement("h2");
+        let deletebtn = document.createElement("button");
+        deletebtn.innerText = "Complete";
+        deletebtn.className = "deletebtnn";
+        
+        item.innerHTML = currentIndex + "-" + input ;
+
+        deletebtn.addEventListener("click", () => {
+            if (element) {
+        element.parentNode.removeChild(element);
+      }
+          
+        });
+
+        if (input === "") {
+          return alert("Please enter valid data")
+        } else {
+          div.append(item, deletebtn);
+        }
+        
+        currentIndex++;
+    }
+    </script>
+  </body>
+</html>
