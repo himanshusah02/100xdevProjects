@@ -1,0 +1,27 @@
+<head>
+  <!-- <script src=”https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script> -->
+  <script>
+
+      async function sendRequest() {
+          const a = document.getElementById("a").value;
+          const b = document.getElementById("b").value;
+          const params = {
+        param1: a,
+        param2: b,
+    };
+
+          const options = {
+        method: 'POST',
+        body: JSON.stringify( params )
+    };
+       const ans =   await fetch("http://localhost:3000/sum",options);
+
+       console.log(ans)
+        }
+  </script>
+</head>
+<body>
+  <input id="a" placeholder="first value" />
+  <input id="b" placeholder="second value" />
+  <button onclick="sendRequest()">Send Request</button>
+</body>

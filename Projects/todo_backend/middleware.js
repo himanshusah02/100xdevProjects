@@ -23,8 +23,8 @@ function isOldEnoughMiddleware(req, res, next) {
 }
 
 app.post("/ride", isOldEnoughMiddleware, (req, res) => {
-    let age = req.body.age
-    console.log(age);
+  let age = req.query.age;
+  console.log(age);
   res.json({
     msg: "Your are succesfully enter....1",
   });
