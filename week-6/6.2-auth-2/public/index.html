@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Auth website</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  </head>
+
+  <body>
+    <div>
+      Login
+      <input
+        id="login-username"
+        type="text"
+        name="username"
+        placeholder="username"
+      />
+      <input
+        id="login-password"
+        type="text"
+        name="password"
+        placeholder="password"
+      />
+      <button onclick="login()">Login</button>
+    </div>
+
+    <div>
+      signup
+      <input
+        id="sign-username"
+        type="text"
+        name="username"
+        placeholder="username"
+      />
+      <input
+        id="sign-password"
+        type="text"
+        name="password"
+        placeholder="password"
+      />
+      <button onclick="signup()">Signup</button>
+    </div>
+    <div>
+      User information:
+      <div id="information"></div>
+      <button onclick="getinfo()">Getinfo</button>
+    </div>
+
+    <div>
+      <button onclick="logout()">Logout</button>
+    </div>
+  </body>
+  <script>
+    async function login() {
+      let username = document.getElementById("login-username").value;
+      let password = document.getElementById("login-password").value;
+
+      await axios.post("http://localhost:8080/login", {
+        username,
+        password,
+      });
+
+      alert(username, password);
+    }
+
+    async function signup() {
+      let username = document.getElementById("sign-username").value;
+      let password = document.getElementById("sign-password").value;
+
+      let response = await axios.post("http://localhost:8080/signup", {
+        username,
+        password,
+      });
+      localStorage.setItem("token", response.data.token);
+
+      alert("You are signed in");
+    }
+
+    async function getinfo() {
+      const response = await axios.get("http://localhost:8080/me", {
+        headers: {
+          token: localStorage.getItem("token"),
+        },
+      });
+
+
+      document.getElementById("information").innerHTML =
+        "username: " +
+        response.data.username ;
+    }
+  
+    async function logout() {
+      await localStorage.removeItem("token");
+    }
+  
+  </script>
+</html>
