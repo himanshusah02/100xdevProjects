@@ -2,7 +2,7 @@ const express = require("express");
 const app = express();
 const jwt = require("jsonwebtoken");
 var cors = require("cors");
-const JWT_SECRET = "";
+const JWT_SECRET = "himan";
 
 let users = [];
 
@@ -23,9 +23,9 @@ function auth(err, req, res, next) {
   }
 }
 
-app.get("/", function(req,res){
+app.get("/", function (req, res) {
   res.sendFile(__dirname + "/public/index.html");
-})
+});
 
 function logger(req, res, next) {
   console.log(req.method + " request came ");
@@ -77,7 +77,7 @@ app.post("/signup", logger, function (req, res) {
 });
 
 app.get("/me", logger, auth, function (req, res) {
-//  console.log(req);
+  //  console.log(req);
   let userFound = null;
 
   for (let i = 0; i < users.length; i++) {
