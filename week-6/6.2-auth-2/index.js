@@ -2,7 +2,7 @@ const express = require("express");
 const app = express();
 const jwt = require("jsonwebtoken");
 var cors = require("cors");
-const JWT_SECRET = "himan";
+const JWT_SECRET = "";
 
 let users = [];
 

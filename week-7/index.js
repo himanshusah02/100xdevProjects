@@ -12,7 +12,7 @@ const {z} = require("zod");
 const app = express();
 app.use(express.json());
 mongoose.connect(
-  "mongodb+srv://himanshu:1RFVKuZmbDtvhaZ8@cluster0.bgp36.mongodb.net/todo-himanshu-todo2"
+  ""
 );
 
 app.post("/singup", async function (req, res) {
