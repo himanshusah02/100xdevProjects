@@ -1,0 +1,8 @@
+const JWT_SECRET_KEY_ADMIN = process.env.JWT_SECRET_KEY_ADMIN;
+
+const JWT_SECRET_KEY_USER = process.env.JWT_SECRET_KEY_USER;
+
+module.exports = {
+  JWT_SECRET_KEY_ADMIN,
+  JWT_SECRET_KEY_USER,
+};
